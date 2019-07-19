@@ -24,7 +24,7 @@ public class Driver extends Application{
 		MainController maincontroller = MainController.getInstance();
 		loader.setController(maincontroller);
 		Parent root = loader.load();
-		Scene scene = new Scene(root, 500, 700);
+		Scene scene = new Scene(root, 600, 800);
 		primaryStage.setScene(scene);
 		primaryStage.getIcons().add(new Image("resources/space_08-512.png"));
 		primaryStage.setTitle("Ground Zero");
