@@ -12,6 +12,7 @@ public class Goal {
 	private int count;
 	private Date start;
 	private Date end;
+	private int id;
 	
 	public Goal()
 	{
@@ -72,5 +73,18 @@ public class Goal {
 	}
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String toString()
+	{
+		String output = "Goal: " + name + "\nID: " + id;
+		return output;
 	}
 }
