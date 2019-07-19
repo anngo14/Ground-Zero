@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#addUser" prefHeight="70.0" prefWidth="70.0" text="Add" StackPane.alignment="BOTTOM_RIGHT">
+         <StackPane.margin>
+            <Insets bottom="25.0" right="25.0" />
+         </StackPane.margin>
+      </Button>
+      <HBox alignment="CENTER" StackPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="list" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" StackPane.alignment="CENTER" />
+         </children>
+         <StackPane.margin>
+            <Insets bottom="140.0" left="100.0" right="100.0" top="120.0" />
+         </StackPane.margin>
+      </HBox>
+      <Label text="Available Users" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="48.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="25.0" top="25.0" />
+         </StackPane.margin>
+      </Label>
+      <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backToHome" prefHeight="70.0" prefWidth="70.0" text="Home" StackPane.alignment="BOTTOM_LEFT">
+         <StackPane.margin>
+            <Insets bottom="25.0" left="25.0" />
+         </StackPane.margin>
+      </Button>
+   </children>
+</StackPane>
