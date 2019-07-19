@@ -1,0 +1,4 @@
+.body{
+	-fx-background-image: url('/resources/city.jpg');
+	-fx-background-size: cover, auto;
+}
