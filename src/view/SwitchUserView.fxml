@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -29,7 +30,15 @@
             <Insets left="25.0" top="25.0" />
          </StackPane.margin>
       </Label>
-      <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backToHome" prefHeight="70.0" prefWidth="70.0" text="Home" StackPane.alignment="BOTTOM_LEFT">
+      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_LEFT">
+         <image>
+            <Image url="@../resources/home.png" />
+         </image>
+         <StackPane.margin>
+            <Insets bottom="25.0" left="25.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Button fx:id="homeButton" mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="70.0" prefWidth="70.0" text="Home" StackPane.alignment="BOTTOM_LEFT">
          <StackPane.margin>
             <Insets bottom="25.0" left="25.0" />
          </StackPane.margin>
