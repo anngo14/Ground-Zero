@@ -11,7 +11,7 @@ public class SwitchUserController implements Controller{
 	@FXML
 	public void addUser()
 	{
-		
+		MainController.getInstance().changeView(ViewType.CREATEUSER);
 	}
 	@FXML
 	public void backToHome()

@@ -52,6 +52,12 @@ public class MainController implements Initializable, Controller{
 				controller = new MainController();
 				break;
 			}
+			case CREATEUSER:
+			{
+				viewName = "/view/CreateUserView.fxml";
+				controller = new CreateUserController();
+				break;
+			}
 		}
 		try {
 			FXMLLoader loader = new FXMLLoader(this.getClass().getResource(viewName));
@@ -66,7 +72,7 @@ public class MainController implements Initializable, Controller{
 	@FXML
 	public void loginAction()
 	{
-		changeView(ViewType.SWITCHUSER);
+		
 	}
 	@FXML
 	public void quitApplication()
@@ -76,7 +82,7 @@ public class MainController implements Initializable, Controller{
 	@FXML
 	public void switchUser()
 	{
-		
+		changeView(ViewType.SWITCHUSER);
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
