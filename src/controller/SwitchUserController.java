@@ -2,6 +2,7 @@ package controller;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import gateway.UserTableGateway;
@@ -18,6 +19,8 @@ import model.User;
 public class SwitchUserController implements Controller, Initializable{
 	
 	private ArrayList<User> ulist;
+	private User user;
+	
 	@FXML
 	ListView<User> list;
 	@FXML
@@ -27,15 +30,20 @@ public class SwitchUserController implements Controller, Initializable{
 	{
 		ulist = new ArrayList<User>();
 	}
+	public SwitchUserController(User u)
+	{
+		user = u;
+		ulist = new ArrayList<User>();
+	}
 	@FXML
 	public void addUser()
 	{
-		MainController.getInstance().changeView(ViewType.CREATEUSER);
+		MainController.getInstance().changeView(ViewType.CREATEUSER, Optional.of(user));
 	}
 	@FXML
 	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.LOGIN);
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user));
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -54,6 +62,7 @@ public class SwitchUserController implements Controller, Initializable{
 			}
 			
 		});
+		list.setOnMousePressed(new UserMouseEventHandler(list));
 		list.setItems(olist);
 	}
 }

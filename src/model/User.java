@@ -44,7 +44,7 @@ public class User {
 	}
 	public String toString()
 	{
-		String output = "User: " + name + "\nID: " + id;
+		String output = name + "@@" + imgSrc + "@@" + id + "\n";
 		return output;
 	}
 }

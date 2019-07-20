@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.util.Optional;
 
 import gateway.UserTableGateway;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import model.User;
 public class CreateUserController implements Controller{
 
 	private FileChooser fileChoose = new FileChooser();
+	private User user;
 	
 	@FXML
 	StackPane panel;
@@ -25,10 +27,14 @@ public class CreateUserController implements Controller{
 	{
 		
 	}
+	public CreateUserController(User u)
+	{
+		user = u;
+	}
 	@FXML
 	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.LOGIN);
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user));
 	}
 	@FXML
 	public void saveUser()
@@ -40,7 +46,7 @@ public class CreateUserController implements Controller{
 			temp.setImgSrc(imgText.getText());;
 		}
 		UserTableGateway.getInstance().saveUser(temp);
-		MainController.getInstance().changeView(ViewType.SWITCHUSER);
+		MainController.getInstance().changeView(ViewType.SWITCHUSER, Optional.of(temp));
 	}
 	@FXML
 	public void uploadImg()

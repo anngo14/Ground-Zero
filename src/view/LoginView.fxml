@@ -17,7 +17,7 @@
             <Insets bottom="25.0" right="25.0" />
          </StackPane.margin>
       </ImageView>
-      <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+      <ImageView fx:id="userImg" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
          <image>
             <Image url="@../resources/rounded-512.png" />
          </image>

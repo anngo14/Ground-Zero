@@ -60,7 +60,6 @@ public class UserTableGateway {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		MainController.getInstance().changeView(ViewType.SWITCHUSER);
 	}
 	public Connection getConnection()
 	{
