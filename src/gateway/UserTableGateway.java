@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import controller.MainController;
+import controller.ViewType;
 import model.User;
 
 public class UserTableGateway {
@@ -39,13 +41,26 @@ public class UserTableGateway {
 			{ 
 				users.add(new User(resultSet.getString("name")
 						, resultSet.getString("image")
-						, resultSet.getInt("id")
-						, resultSet.getInt("goalId")));
+						, resultSet.getInt("id")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return users;
+	}
+	public void saveUser(User u)
+	{
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "INSERT INTO \"User\" (name, image) VALUES (?,?)";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, u.getName());
+			preparedStatement.setString(2, u.getImgSrc());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		MainController.getInstance().changeView(ViewType.SWITCHUSER);
 	}
 	public Connection getConnection()
 	{

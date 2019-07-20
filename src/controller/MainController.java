@@ -11,10 +11,12 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import model.User;
 
 public class MainController implements Initializable, Controller{
 
 	private static MainController instance = null;
+	private User user;
 	
 	@FXML
 	Label nameLabel;
@@ -24,6 +26,10 @@ public class MainController implements Initializable, Controller{
 	public MainController()
 	{
 		
+	}
+	public MainController(User u)
+	{
+		user = u;
 	}
 	public static MainController getInstance()
 	{

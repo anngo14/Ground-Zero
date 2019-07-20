@@ -9,7 +9,15 @@
 
 <StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="addButton" mnemonicParsing="false" onAction="#addUser" prefHeight="70.0" prefWidth="70.0" text="Add" StackPane.alignment="BOTTOM_RIGHT">
+      <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="BOTTOM_RIGHT">
+         <image>
+            <Image url="@../resources/add-circle-512.png" />
+         </image>
+         <StackPane.margin>
+            <Insets bottom="25.0" right="25.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Button fx:id="addButton" mnemonicParsing="false" onAction="#addUser" opacity="0.0" prefHeight="70.0" prefWidth="70.0" text="Add" StackPane.alignment="BOTTOM_RIGHT">
          <StackPane.margin>
             <Insets bottom="25.0" right="25.0" />
          </StackPane.margin>

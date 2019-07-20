@@ -10,7 +10,9 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
 import model.User;
 
 public class SwitchUserController implements Controller, Initializable{
@@ -44,6 +46,14 @@ public class SwitchUserController implements Controller, Initializable{
 		{
 			zeroLabel.setOpacity(0);
 		}
+		list.setCellFactory(new Callback<ListView<User>, ListCell<User>>() {
+			@Override
+			public ListCell<User> call(ListView<User> arg0) {
+				// TODO Auto-generated method stub
+				return new UserFormatCell();
+			}
+			
+		});
 		list.setItems(olist);
 	}
 }

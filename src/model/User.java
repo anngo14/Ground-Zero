@@ -4,7 +4,6 @@ public class User {
 
 	private String name;
 	private String imgSrc;
-	private int goalId;
 	private int id;
 	
 	public User()
@@ -12,13 +11,11 @@ public class User {
 		id = -1;
 		imgSrc = "resources/rounded-512.png";
 		name = "John Smith";
-		goalId = -1;
 	}
-	public User(String n, String img, int uid, int gid)
+	public User(String n, String img, int uid)
 	{
 		name = n;
 		imgSrc = img;
-		goalId = gid;
 		id = uid;
 	}
 
@@ -37,15 +34,7 @@ public class User {
 	public void setImgSrc(String imgSrc) {
 		this.imgSrc = imgSrc;
 	}
-
-	public int getGoalId() {
-		return goalId;
-	}
-
-	public void setGoalId(int goalId) {
-		this.goalId = goalId;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
