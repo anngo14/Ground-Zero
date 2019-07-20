@@ -6,6 +6,8 @@ import java.net.MalformedURLException;
 import javafx.scene.control.ListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import model.User;
 
@@ -38,6 +40,7 @@ public class UserFormatCell extends ListCell<User>{
 			setGraphic(imgView);
 			setText(" " + u.getName());
 			setFont(new Font(26));
+			setTextFill(Color.LIGHTGRAY);
 		}
 	}
 		

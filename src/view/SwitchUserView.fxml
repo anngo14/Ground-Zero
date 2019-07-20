@@ -27,7 +27,7 @@
             <ListView fx:id="list" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS" StackPane.alignment="CENTER" />
          </children>
          <StackPane.margin>
-            <Insets bottom="140.0" left="100.0" right="100.0" top="120.0" />
+            <Insets bottom="150.0" left="100.0" right="100.0" top="150.0" />
          </StackPane.margin>
       </HBox>
       <Label text="Available Users" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">

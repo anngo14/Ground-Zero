@@ -63,6 +63,7 @@ public class SwitchUserController implements Controller, Initializable{
 			
 		});
 		list.setOnMousePressed(new UserMouseEventHandler(list));
+		list.setStyle("-fx-control-inner-background: 10%;");
 		list.setItems(olist);
 	}
 }
