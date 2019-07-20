@@ -9,7 +9,17 @@ public class User {
 	
 	public User()
 	{
-		
+		id = -1;
+		imgSrc = "resources/rounded-512.png";
+		name = "John Smith";
+		goalId = -1;
+	}
+	public User(String n, String img, int uid, int gid)
+	{
+		name = n;
+		imgSrc = img;
+		goalId = gid;
+		id = uid;
 	}
 
 	public String getName() {

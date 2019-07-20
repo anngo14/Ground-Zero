@@ -39,7 +39,7 @@
             <Font size="22.0" />
          </font>
          <StackPane.margin>
-            <Insets left="156.0" top="88.0" />
+            <Insets left="157.0" top="88.0" />
          </StackPane.margin>
       </Hyperlink>
       <Label fx:id="nameLabel" text="First Last" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">
