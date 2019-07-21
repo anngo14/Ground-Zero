@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="First Last" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="163.0" top="35.0" />
+         </StackPane.margin>
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="100.0" StackPane.alignment="TOP_CENTER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="175.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50 50 50 50;" text="Active" StackPane.alignment="TOP_CENTER">
+               <StackPane.margin>
+                  <Insets top="150.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-background-radius: 50 50 50 50;" text="Inactive" StackPane.alignment="TOP_CENTER">
+               <StackPane.margin>
+                  <Insets top="150.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="25.0" right="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="175.0" style="-fx-background-color: #FFFAFA; -fx-border-color: black; -fx-border-radius: 50 50 50 50; -fx-background-radius: 50 50 50 50;" text="Show All" StackPane.alignment="TOP_CENTER">
+               <StackPane.margin>
+                  <Insets top="150.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+         <StackPane.margin>
+            <Insets top="220.0" />
+         </StackPane.margin>
+      </HBox>
+      <Hyperlink focusTraversable="false" text="Back To Home" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="22.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="157.0" top="88.0" />
+         </StackPane.margin>
+      </Hyperlink>
+      <Label text="Activity" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+         <font>
+            <Font size="60.0" />
+         </font>
+         <StackPane.margin>
+            <Insets top="140.0" />
+         </StackPane.margin>
+      </Label>
+      <ListView prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="330.0" />
+         </StackPane.margin>
+      </ListView>
+      <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="25.0" top="25.0" />
+         </StackPane.margin>
+         <image>
+            <Image url="@../resources/rounded-512.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <image>
+            <Image url="@../resources/plus_add_green.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Button mnemonicParsing="false" opacity="0.0" prefHeight="70.0" prefWidth="70.0" text="Add" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </StackPane.margin>
+      </Button>
+   </children>
+</StackPane>

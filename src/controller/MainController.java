@@ -71,6 +71,12 @@ public class MainController implements Initializable, Controller{
 				controller = new CreateUserController(user.get());
 				break;
 			}
+			case ACTIVITY:
+			{
+				viewName = "/view/ActivityView.fxml";
+				controller = new ActivityController();
+				break;
+			}
 		}
 		try {
 			FXMLLoader loader = new FXMLLoader(this.getClass().getResource(viewName));
@@ -85,7 +91,7 @@ public class MainController implements Initializable, Controller{
 	@FXML
 	public void loginAction()
 	{
-		
+		changeView(ViewType.ACTIVITY, Optional.of(user));
 	}
 	@FXML
 	public void quitApplication()

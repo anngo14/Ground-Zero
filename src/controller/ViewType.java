@@ -1,5 +1,5 @@
 package controller;
 
 public enum ViewType {
-	LOGIN, SWITCHUSER, CREATEUSER
+	LOGIN, SWITCHUSER, CREATEUSER, ACTIVITY
 }
