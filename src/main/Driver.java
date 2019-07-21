@@ -47,6 +47,7 @@ public class Driver extends Application{
 
 		Parent root = loader.load();
 		Scene scene = new Scene(root, 700, 900);
+		scene.getStylesheets().add("https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap");
 		primaryStage.setScene(scene);
 		primaryStage.getIcons().add(new Image("resources/space_08-512.png"));
 		primaryStage.setTitle("Ground Zero");

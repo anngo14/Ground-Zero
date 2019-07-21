@@ -74,7 +74,7 @@ public class MainController implements Initializable, Controller{
 			case ACTIVITY:
 			{
 				viewName = "/view/ActivityView.fxml";
-				controller = new ActivityController();
+				controller = new ActivityController(user.get());
 				break;
 			}
 		}

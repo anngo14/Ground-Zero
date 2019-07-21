@@ -25,6 +25,8 @@ public class SwitchUserController implements Controller, Initializable{
 	ListView<User> list;
 	@FXML
 	Label zeroLabel;
+	@FXML
+	Label availableLabel;
 	
 	public SwitchUserController()
 	{
@@ -47,6 +49,7 @@ public class SwitchUserController implements Controller, Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		availableLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
 		ulist = UserTableGateway.getInstance().getAllUsers();
 		ObservableList<User> olist = FXCollections.observableArrayList(ulist);
 

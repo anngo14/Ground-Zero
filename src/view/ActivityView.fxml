@@ -9,7 +9,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="First Last" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">
+      <Label fx:id="nameLabel" text="First Last" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="163.0" top="35.0" />
          </StackPane.margin>
@@ -57,7 +57,7 @@
             <Insets top="220.0" />
          </StackPane.margin>
       </HBox>
-      <Hyperlink focusTraversable="false" text="Back To Home" StackPane.alignment="TOP_LEFT">
+      <Hyperlink focusTraversable="false" onAction="#backToHome" text="Back To Home" StackPane.alignment="TOP_LEFT">
          <font>
             <Font size="22.0" />
          </font>
@@ -65,7 +65,7 @@
             <Insets left="157.0" top="88.0" />
          </StackPane.margin>
       </Hyperlink>
-      <Label text="Activity" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+      <Label fx:id="activityLabel" text="Activity" textFill="WHITE" StackPane.alignment="TOP_CENTER">
          <font>
             <Font size="60.0" />
          </font>
