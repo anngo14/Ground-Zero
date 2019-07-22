@@ -64,6 +64,11 @@ public class CreateUserController implements Controller, Initializable{
 			imgText.setText(file.getAbsolutePath());
 		}
 	}
+	@FXML
+	public void cancelAction()
+	{
+		MainController.getInstance().changeView(ViewType.SWITCHUSER, Optional.of(user));
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		newUserLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");

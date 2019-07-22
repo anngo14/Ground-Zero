@@ -26,14 +26,35 @@
             <Insets right="25.0" top="25.0" />
          </StackPane.margin>
       </Label>
-      <Button mnemonicParsing="false" onAction="#saveUser" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50;" text="Save" StackPane.alignment="BOTTOM_CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" StackPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#cancelAction" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50;" text="Cancel" StackPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets bottom="50.0" />
+               </StackPane.margin>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#saveUser" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50;" text="Save" StackPane.alignment="BOTTOM_CENTER">
+               <StackPane.margin>
+                  <Insets bottom="140.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
          <StackPane.margin>
             <Insets bottom="75.0" />
          </StackPane.margin>
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Button>
+      </HBox>
       <Button mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="70.0" prefWidth="70.0" text="Home" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="25.0" top="25.0" />
