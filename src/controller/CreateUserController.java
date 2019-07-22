@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import gateway.UserTableGateway;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
@@ -28,6 +29,8 @@ public class CreateUserController implements Controller, Initializable{
 	TextField imgText;
 	@FXML
 	Label newUserLabel;
+	@FXML
+	Button saveButton;
 	
 	public CreateUserController()
 	{
@@ -73,5 +76,6 @@ public class CreateUserController implements Controller, Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		newUserLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");
 		imgText.setMouseTransparent(true);
+		nameText.textProperty().addListener(new CreateUserChangeListener(saveButton));
 	}
 }
