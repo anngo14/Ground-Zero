@@ -1,0 +1,4 @@
+.activitybg{
+	-fx-background-image: url('/resources/mountain.jpg');
+	-fx-background-size: cover, auto;
+}

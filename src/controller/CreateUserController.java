@@ -66,6 +66,7 @@ public class CreateUserController implements Controller, Initializable{
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		newUserLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
+		newUserLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");
+		imgText.setMouseTransparent(true);
 	}
 }

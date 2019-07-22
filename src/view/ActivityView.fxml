@@ -7,9 +7,9 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" styleClass="activitybg" stylesheets="@ActivityView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="nameLabel" text="First Last" textFill="LIGHTGRAY" StackPane.alignment="TOP_LEFT">
+      <Label fx:id="nameLabel" text="First Last" textFill="#999999" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="163.0" top="35.0" />
          </StackPane.margin>
@@ -65,7 +65,7 @@
             <Insets left="157.0" top="88.0" />
          </StackPane.margin>
       </Hyperlink>
-      <Label fx:id="activityLabel" text="Activity" textFill="WHITE" StackPane.alignment="TOP_CENTER">
+      <Label fx:id="activityLabel" text="Activity" textFill="#3b444b" StackPane.alignment="TOP_CENTER">
          <font>
             <Font size="60.0" />
          </font>
@@ -99,7 +99,7 @@
             <Insets right="25.0" top="25.0" />
          </StackPane.margin>
       </Button>
-      <Label fx:id="zeroLabel" opacity="0.0" text="No Activity to Display" textFill="LIGHTGRAY">
+      <Label fx:id="zeroLabel" opacity="0.0" text="No Activity to Display" textFill="#3b444b">
          <font>
             <Font size="36.0" />
          </font>

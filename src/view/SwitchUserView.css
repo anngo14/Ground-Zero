@@ -1,0 +1,4 @@
+.switchbg{
+	-fx-background-image: url('/resources/solo.jpg');
+	-fx-background-size: cover, auto;
+}

@@ -1,0 +1,4 @@
+.createbg{
+	-fx-background-image: url('/resources/plant.jpg');
+	-fx-background-size: cover, auto;
+}
