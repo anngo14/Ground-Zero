@@ -13,6 +13,7 @@ public class Goal {
 	private Date start;
 	private Date end;
 	private int id;
+	private int userid;
 	
 	public Goal()
 	{
@@ -25,7 +26,18 @@ public class Goal {
 		start = new Date();
 		end = new Date();
 	}
-
+	public Goal(String n, String d, String img, int g, int s, int c, Date st, Date e, int uid)
+	{
+		name = n;
+		description = d;
+		imgSrc = img;
+		goal = g;
+		status = s;
+		count = c;
+		start = st;
+		end = e;
+		userid = uid;
+	}
 	public String getDescription() {
 		return description;
 	}
@@ -86,5 +98,11 @@ public class Goal {
 	{
 		String output = "Goal: " + name + "\nID: " + id;
 		return output;
+	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 }

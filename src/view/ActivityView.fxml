@@ -19,7 +19,7 @@
       </Label>
       <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="100.0" StackPane.alignment="TOP_CENTER">
          <children>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="175.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50 50 50 50;" text="Active" StackPane.alignment="TOP_CENTER">
+            <Button fx:id="activeButton" mnemonicParsing="false" onAction="#showActive" opacity="0.5" prefHeight="70.0" prefWidth="175.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50 50 50 50;" text="Active" StackPane.alignment="TOP_CENTER">
                <StackPane.margin>
                   <Insets top="150.0" />
                </StackPane.margin>
@@ -30,7 +30,7 @@
                   <Insets right="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-background-radius: 50 50 50 50;" text="Inactive" StackPane.alignment="TOP_CENTER">
+            <Button fx:id="inactiveButton" mnemonicParsing="false" onAction="#showInactive" opacity="0.5" prefHeight="70.0" prefWidth="175.0" style="-fx-border-color: black; -fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-background-radius: 50 50 50 50;" text="Inactive" StackPane.alignment="TOP_CENTER">
                <StackPane.margin>
                   <Insets top="150.0" />
                </StackPane.margin>
@@ -41,7 +41,7 @@
                   <Insets left="25.0" right="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="175.0" style="-fx-background-color: #FFFAFA; -fx-border-color: black; -fx-border-radius: 50 50 50 50; -fx-background-radius: 50 50 50 50;" text="Show All" StackPane.alignment="TOP_CENTER">
+            <Button fx:id="allButton" mnemonicParsing="false" onAction="#showAll" opacity="0.5" prefHeight="70.0" prefWidth="175.0" style="-fx-background-color: #FFFAFA; -fx-border-color: black; -fx-border-radius: 50 50 50 50; -fx-background-radius: 50 50 50 50;" text="Show All" StackPane.alignment="TOP_CENTER">
                <StackPane.margin>
                   <Insets top="150.0" />
                </StackPane.margin>
@@ -73,7 +73,7 @@
             <Insets top="140.0" />
          </StackPane.margin>
       </Label>
-      <ListView prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_CENTER">
+      <ListView fx:id="list" prefHeight="200.0" prefWidth="200.0" StackPane.alignment="TOP_CENTER">
          <StackPane.margin>
             <Insets bottom="25.0" left="25.0" right="25.0" top="330.0" />
          </StackPane.margin>
@@ -99,5 +99,10 @@
             <Insets right="25.0" top="25.0" />
          </StackPane.margin>
       </Button>
+      <Label fx:id="zeroLabel" opacity="0.0" text="No Activity to Display" textFill="LIGHTGRAY">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </StackPane>
