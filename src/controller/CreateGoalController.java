@@ -5,21 +5,27 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import gateway.GoalTableGateway;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import model.Goal;
 import model.User;
 
 public class CreateGoalController implements Controller, Initializable{
 
 	private User user;
+	private final String[] typeOptions = {"Finance", "Fitness", "Productivity", "Other"};
+	private final String[] statusOptions = {"Active", "Inactive"};
 	@FXML
 	ComboBox<String> typeCombo;
 	@FXML
@@ -36,6 +42,8 @@ public class CreateGoalController implements Controller, Initializable{
 	TextField goalText;
 	@FXML
 	TextArea descriptionText;
+	@FXML
+	Button saveButton;
 	
 	public CreateGoalController(User u)
 	{
@@ -60,20 +68,59 @@ public class CreateGoalController implements Controller, Initializable{
 	@FXML
 	public void saveGoal()
 	{
-		
+		int status = getStatus();
+		String image = getImage();
+		Date start = java.sql.Date.valueOf(startDate.getValue());
+		Date end = java.sql.Date.valueOf(endDate.getValue());
+
+		Goal temp = new Goal(nameText.getText(), descriptionText.getText(), image, Integer.parseInt(goalText.getText()), status, 0, start, end, user.getId());
+		GoalTableGateway.getInstance().saveGoal(user, temp);
+	}
+	public int getStatus()
+	{
+		int status = 0;
+		if(statusCombo.getSelectionModel().equals("Active"))
+		{
+			status = 0;
+		}
+		else if(statusCombo.getSelectionModel().equals("Inactive"))
+		{
+			status = 1;
+		}
+		return status;
+	}
+	public String getImage()
+	{
+		String image = "";
+		if(typeCombo.getSelectionModel().equals("Finance"))
+		{
+			image = "/resources/cash-icon.png";
+		}
+		else if(typeCombo.getSelectionModel().equals("Fitness"))
+		{
+			image = "/resources/fitnessicon.png";
+		}
+		else if(typeCombo.getSelectionModel().equals("Productivity"))
+		{
+			image = "/resources/productivityicon.png";
+		}
+		else if(typeCombo.getSelectionModel().equals("Other"))
+		{
+			image = "/resources/etcicon.png";
+		}
+		return image;
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		String[] typeOptions = {"Finance", "Fitness", "Productivity", "Other"};
-		String[] statusOptions = {"Active", "Inactive"};
 		typeCombo.getItems().addAll(typeOptions);
 		statusCombo.getItems().addAll(statusOptions);
-		typeCombo.valueProperty().addListener(new CreateGoalChangeListener(image));
 		startDate.setValue(NOW_LOCAL_DATE());
 		endDate.setValue(NOW_LOCAL_DATE());
+		typeCombo.valueProperty().addListener(new CreateGoalChangeListener(image));
 		nameText.focusedProperty().addListener(new NodeChangeListener(nameText));
 		goalText.focusedProperty().addListener(new NodeChangeListener(goalText));
 		descriptionText.focusedProperty().addListener(new NodeChangeListener(descriptionText));
+		nameText.textProperty().addListener(new CreateUserChangeListener(saveButton));
 	}
 
 }
