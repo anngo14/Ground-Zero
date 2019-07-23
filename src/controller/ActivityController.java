@@ -82,6 +82,16 @@ public class ActivityController implements Controller, Initializable{
 			list.setOpacity(0);
 		}
 	}
+	@FXML
+	public void showFinished()
+	{
+		
+	}
+	@FXML
+	public void addNewGoal()
+	{
+		MainController.getInstance().changeView(ViewType.CREATEGOAL, Optional.of(user));
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nameLabel.setText(user.getName());

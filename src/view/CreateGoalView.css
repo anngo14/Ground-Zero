@@ -1,0 +1,4 @@
+.newgoalbg{
+	-fx-background-image: url('/resources/road.jpg');
+	-fx-background-size: cover, auto;
+}

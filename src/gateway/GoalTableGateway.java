@@ -83,6 +83,34 @@ public class GoalTableGateway {
 		}
 		return inactive;
 	}
+	public ArrayList<Goal> getCompletedGoals(User u)
+	{
+		ArrayList<Goal> complete = new ArrayList<Goal>();
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, -1);
+			preparedStatement.setInt(2, u.getId());
+			preparedStatement.setInt(3, 2);
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next())
+			{ 
+				complete.add(new Goal(resultSet.getString("name")
+						, resultSet.getString("description")
+						, resultSet.getString("image")
+						, resultSet.getInt("goal")
+						, resultSet.getInt("status")
+						, resultSet.getInt("count")
+						, resultSet.getDate("start")
+						, resultSet.getDate("end")
+						, resultSet.getInt("userid")));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return complete;
+	}
 	public ArrayList<Goal> getAllGoals(User u)
 	{
 		ArrayList<Goal> goals = new ArrayList<Goal>();

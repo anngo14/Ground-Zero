@@ -77,6 +77,12 @@ public class MainController implements Initializable, Controller{
 				controller = new ActivityController(user.get());
 				break;
 			}
+			case CREATEGOAL:
+			{
+				viewName = "/view/CreateGoalView.fxml";
+				controller = new CreateGoalController(user.get());
+				break;
+			}
 		}
 		try {
 			FXMLLoader loader = new FXMLLoader(this.getClass().getResource(viewName));

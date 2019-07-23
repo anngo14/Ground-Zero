@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" styleClass="newgoalbg" stylesheets="@CreateGoalView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <image>
+            <Image url="@../resources/home.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </StackPane.margin>
+      </ImageView>
+      <VBox StackPane.alignment="CENTER">
+         <children>
+            <Label text="Goal" StackPane.alignment="CENTER_LEFT">
+               <font>
+                  <Font size="36.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets bottom="500.0" left="25.0" />
+               </StackPane.margin>
+            </Label>
+            <TextField maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="69.0" prefWidth="650.0" promptText="Numerical (days, lbs, $, etc)" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="400.0" left="25.0" right="25.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="32.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="5.0" />
+               </VBox.margin>
+            </TextField>
+            <Label text="Description" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets bottom="310.0" left="25.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <TextArea maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="650.0" promptText="Maximum of 200 characters" wrapText="true" StackPane.alignment="CENTER_LEFT">
+               <StackPane.margin>
+                  <Insets left="25.0" right="25.0" />
+               </StackPane.margin>
+               <font>
+                  <Font size="26.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="25.0" top="5.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="650.0" StackPane.alignment="CENTER">
+               <children>
+                  <Label text="Start">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <DatePicker prefHeight="49.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </DatePicker>
+                  <Label text="End">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="5.0" />
+                     </HBox.margin>
+                  </Label>
+                  <DatePicker prefHeight="49.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </DatePicker>
+               </children>
+               <StackPane.margin>
+                  <Insets left="25.0" right="25.0" top="320.0" />
+               </StackPane.margin>
+            </HBox>
+         </children>
+         <StackPane.margin>
+            <Insets left="25.0" right="25.0" top="240.0" />
+         </StackPane.margin>
+      </VBox>
+      <TextField maxWidth="-Infinity" prefWidth="350.0" promptText="Name" StackPane.alignment="TOP_LEFT">
+         <font>
+            <Font size="32.0" />
+         </font>
+         <StackPane.margin>
+            <Insets left="163.0" top="25.0" />
+         </StackPane.margin>
+      </TextField>
+      <ComboBox prefHeight="49.0" prefWidth="150.0" promptText="Type" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="163.0" right="25.0" top="104.0" />
+         </StackPane.margin>
+      </ComboBox>
+      <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="25.0" top="25.0" />
+         </StackPane.margin>
+         <image>
+            <Image url="@../resources/etcicon.png" />
+         </image>
+      </ImageView>
+      <Button mnemonicParsing="false" onAction="#backToHome" opacity="0.0" prefHeight="70.0" prefWidth="70.0" text="Home" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </StackPane.margin>
+      </Button>
+      <ComboBox prefHeight="49.0" prefWidth="130.0" promptText="Status" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="323.0" top="104.0" />
+         </StackPane.margin>
+      </ComboBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" StackPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#cancelAction" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50;" text="Cancel" StackPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+               <StackPane.margin>
+                  <Insets bottom="50.0" />
+               </StackPane.margin>
+            </Button>
+            <Button fx:id="saveButton" disable="true" mnemonicParsing="false" onAction="#saveGoal" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50;" text="Save" StackPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <StackPane.margin>
+                  <Insets bottom="140.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+         <StackPane.margin>
+            <Insets bottom="40.0" />
+         </StackPane.margin>
+      </HBox>
+   </children>
+</StackPane>
