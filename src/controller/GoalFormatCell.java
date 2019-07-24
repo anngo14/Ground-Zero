@@ -25,12 +25,48 @@ public class GoalFormatCell extends ListCell<Goal>{
 			setGraphic(null);
 		}
 		else{
-			img = new Image(g.getImgSrc(), 80, 80, false, false);
+			String status = getStatus(g);
+			String type = getType(g);
+			img = new Image(g.getImgSrc(), 110, 110, false, false);
 			ImageView imgView = new ImageView(img);
 			setGraphic(imgView);
-			setText(" " + g.getName() + "\n " + g.getDescription());
+			setText(" " + g.getName() + "\n " + type + " | " + status + " | " + g.getGoal() + "\n " + g.getDescription());
 			setFont(new Font(26));
 			setTextFill(Color.web("#3b444b"));
 		}
+	}
+	public String getType(Goal g)
+	{
+		String type = "";
+		if(g.getImgSrc().equals("/resources/cash-icon.png"))
+		{
+			type = "Finance";
+		}
+		else if(g.getImgSrc().equals("/resources/fitnessicon.png"))
+		{
+			type = "Fitness";
+		}
+		else if(g.getImgSrc().equals("/resources/producticityicon.png"))
+		{
+			type = "Productivity";
+		}
+		else if(g.getImgSrc().equals("/resources/etcicon.png"))
+		{
+			type = "Other";
+		}
+		return type;
+	}
+	public String getStatus(Goal g)
+	{
+		String status = "";
+		if(g.getStatus() == 0)
+		{
+			status = "Active";
+		}
+		else if(g.getStatus() == 1)
+		{
+			status = "Inactive";
+		}
+		return status;
 	}
 }

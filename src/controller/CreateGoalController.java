@@ -73,7 +73,7 @@ public class CreateGoalController implements Controller, Initializable{
 		Date start = java.sql.Date.valueOf(startDate.getValue());
 		Date end = java.sql.Date.valueOf(endDate.getValue());
 
-		Goal temp = new Goal(nameText.getText(), descriptionText.getText(), image, Integer.parseInt(goalText.getText()), status, 0, start, end, user.getId());
+		Goal temp = new Goal(nameText.getText(), descriptionText.getText(), image, goalText.getText(), status, 0, start, end, user.getId());
 		GoalTableGateway.getInstance().saveGoal(user, temp);
 		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user));
 	}

@@ -7,7 +7,7 @@ public class Goal {
 	private String name;
 	private String description;
 	private String imgSrc;
-	private int goal;
+	private String goal;
 	private int status;
 	private int count;
 	private Date start;
@@ -20,13 +20,13 @@ public class Goal {
 		name = "";
 		description = "";
 		imgSrc = "";
-		goal = 0;
+		goal = "";
 		status = 0;
 		count = 0;
 		start = new Date();
 		end = new Date();
 	}
-	public Goal(String n, String d, String img, int g, int s, int c, Date st, Date e, int uid)
+	public Goal(String n, String d, String img, String g, int s, int c, Date st, Date e, int uid)
 	{
 		name = n;
 		description = d;
@@ -56,10 +56,10 @@ public class Goal {
 	public void setImgSrc(String imgSrc) {
 		this.imgSrc = imgSrc;
 	}
-	public int getGoal() {
+	public String getGoal() {
 		return goal;
 	}
-	public void setGoal(int goal) {
+	public void setGoal(String goal) {
 		this.goal = goal;
 	}
 	public int getStatus() {

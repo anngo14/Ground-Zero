@@ -35,7 +35,7 @@
                   <Insets bottom="500.0" left="25.0" />
                </StackPane.margin>
             </Label>
-            <TextField fx:id="goalText" maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.5" prefHeight="69.0" prefWidth="650.0" promptText="Numerical (days, lbs, $, etc)" StackPane.alignment="CENTER_LEFT">
+            <TextField fx:id="goalText" maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.5" prefHeight="69.0" prefWidth="650.0" promptText="Quantitative (days, lbs, $, etc)" StackPane.alignment="CENTER_LEFT">
                <StackPane.margin>
                   <Insets bottom="400.0" left="25.0" right="25.0" />
                </StackPane.margin>

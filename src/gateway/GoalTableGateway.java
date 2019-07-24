@@ -43,7 +43,7 @@ public class GoalTableGateway {
 				active.add(new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
-						, resultSet.getInt("goal")
+						, resultSet.getString("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
@@ -71,7 +71,7 @@ public class GoalTableGateway {
 				inactive.add(new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
-						, resultSet.getInt("goal")
+						, resultSet.getString("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
@@ -99,7 +99,7 @@ public class GoalTableGateway {
 				complete.add(new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
-						, resultSet.getInt("goal")
+						, resultSet.getString("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
@@ -126,7 +126,7 @@ public class GoalTableGateway {
 				goals.add(new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
-						, resultSet.getInt("goal")
+						, resultSet.getString("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
@@ -148,7 +148,7 @@ public class GoalTableGateway {
 			preparedStatement.setString(1, g.getName());
 			preparedStatement.setString(2, g.getDescription());
 			preparedStatement.setString(3, g.getImgSrc());
-			preparedStatement.setInt(4, g.getGoal());
+			preparedStatement.setString(4, g.getGoal());
 			preparedStatement.setInt(5, g.getStatus());
 			preparedStatement.setInt(6, g.getCount());
 			preparedStatement.setDate(7, (Date) g.getStart());
