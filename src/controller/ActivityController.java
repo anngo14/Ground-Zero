@@ -57,17 +57,7 @@ public class ActivityController implements Controller, Initializable{
 		activeButton.setOpacity(1);
 		inactiveButton.setOpacity(0.5);
 		allButton.setOpacity(0.5);
-		if(goalList.size() == 0)
-		{
-			zeroLabel.setOpacity(1);
-			zeroLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
-			list.setOpacity(0);
-		}
-		else
-		{
-			zeroLabel.setOpacity(0);
-			list.setOpacity(1);
-		}
+		setUpScene();
 	}
 	@FXML
 	public void showInactive()
@@ -80,17 +70,7 @@ public class ActivityController implements Controller, Initializable{
 		activeButton.setOpacity(0.5);
 		inactiveButton.setOpacity(1);
 		allButton.setOpacity(0.5);
-		if(goalList.size() == 0)
-		{
-			zeroLabel.setOpacity(1);
-			zeroLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
-			list.setOpacity(0);
-		}
-		else
-		{
-			zeroLabel.setOpacity(0);
-			list.setOpacity(1);
-		}
+		setUpScene();
 	}
 	@FXML
 	public void showAll()
@@ -103,6 +83,10 @@ public class ActivityController implements Controller, Initializable{
 		activeButton.setOpacity(0.5);
 		inactiveButton.setOpacity(0.5);
 		allButton.setOpacity(1);
+		setUpScene();
+	}
+	public void setUpScene()
+	{
 		if(goalList.size() == 0)
 		{
 			zeroLabel.setOpacity(1);
