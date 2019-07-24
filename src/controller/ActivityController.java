@@ -12,7 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.util.Callback;
 import model.Goal;
 import model.User;
 
@@ -49,22 +51,21 @@ public class ActivityController implements Controller, Initializable{
 	@FXML
 	public void showActive()
 	{
-		goalList.clear();
 		list.getItems().clear();
 		goalList = GoalTableGateway.getInstance().getActiveGoals(user);
+		setUpScene();
 		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
 		list.setItems(olist);
 		activeButton.setOpacity(1);
 		inactiveButton.setOpacity(0.5);
 		allButton.setOpacity(0.5);
-		setUpScene();
 	}
 	@FXML
 	public void showInactive()
 	{
-		goalList.clear();
 		list.getItems().clear();
 		goalList = GoalTableGateway.getInstance().getInactiveGoals(user);
+		setUpScene();
 		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
 		list.setItems(olist);
 		activeButton.setOpacity(0.5);
@@ -75,15 +76,14 @@ public class ActivityController implements Controller, Initializable{
 	@FXML
 	public void showAll()
 	{
-		goalList.clear();
 		list.getItems().clear();
 		goalList = GoalTableGateway.getInstance().getAllGoals(user);
+		setUpScene();
 		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
 		list.setItems(olist);
 		activeButton.setOpacity(0.5);
 		inactiveButton.setOpacity(0.5);
 		allButton.setOpacity(1);
-		setUpScene();
 	}
 	public void setUpScene()
 	{
@@ -112,6 +112,16 @@ public class ActivityController implements Controller, Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nameLabel.setText(user.getName());
+		list.setCellFactory(new Callback<ListView<Goal>, ListCell<Goal>>() {
+
+			@Override
+			public ListCell<Goal> call(ListView<Goal> arg0) {
+				// TODO Auto-generated method stub
+				return new GoalFormatCell();
+			}
+			
+		});
+		list.setStyle("-fx-control-inner-background: 10%;");
 		activityLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");
 		showActive();
 		

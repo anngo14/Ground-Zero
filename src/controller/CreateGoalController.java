@@ -75,6 +75,7 @@ public class CreateGoalController implements Controller, Initializable{
 
 		Goal temp = new Goal(nameText.getText(), descriptionText.getText(), image, Integer.parseInt(goalText.getText()), status, 0, start, end, user.getId());
 		GoalTableGateway.getInstance().saveGoal(user, temp);
+		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user));
 	}
 	public int getStatus()
 	{
