@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import gateway.GoalTableGateway;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -46,6 +49,11 @@ public class ActivityController implements Controller, Initializable{
 	@FXML
 	public void showActive()
 	{
+		goalList.clear();
+		list.getItems().clear();
+		goalList = GoalTableGateway.getInstance().getActiveGoals(user);
+		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
+		list.setItems(olist);
 		activeButton.setOpacity(1);
 		inactiveButton.setOpacity(0.5);
 		allButton.setOpacity(0.5);
@@ -55,10 +63,20 @@ public class ActivityController implements Controller, Initializable{
 			zeroLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
 			list.setOpacity(0);
 		}
+		else
+		{
+			zeroLabel.setOpacity(0);
+			list.setOpacity(1);
+		}
 	}
 	@FXML
 	public void showInactive()
 	{
+		goalList.clear();
+		list.getItems().clear();
+		goalList = GoalTableGateway.getInstance().getInactiveGoals(user);
+		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
+		list.setItems(olist);
 		activeButton.setOpacity(0.5);
 		inactiveButton.setOpacity(1);
 		allButton.setOpacity(0.5);
@@ -68,10 +86,20 @@ public class ActivityController implements Controller, Initializable{
 			zeroLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
 			list.setOpacity(0);
 		}
+		else
+		{
+			zeroLabel.setOpacity(0);
+			list.setOpacity(1);
+		}
 	}
 	@FXML
 	public void showAll()
 	{
+		goalList.clear();
+		list.getItems().clear();
+		goalList = GoalTableGateway.getInstance().getAllGoals(user);
+		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
+		list.setItems(olist);
 		activeButton.setOpacity(0.5);
 		inactiveButton.setOpacity(0.5);
 		allButton.setOpacity(1);
@@ -80,6 +108,11 @@ public class ActivityController implements Controller, Initializable{
 			zeroLabel.setOpacity(1);
 			zeroLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif;");
 			list.setOpacity(0);
+		}
+		else
+		{
+			zeroLabel.setOpacity(0);
+			list.setOpacity(1);
 		}
 	}
 	@FXML

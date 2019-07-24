@@ -79,11 +79,11 @@ public class CreateGoalController implements Controller, Initializable{
 	public int getStatus()
 	{
 		int status = 0;
-		if(statusCombo.getSelectionModel().equals("Active"))
+		if(statusCombo.getValue().equals("Active"))
 		{
 			status = 0;
 		}
-		else if(statusCombo.getSelectionModel().equals("Inactive"))
+		else if(statusCombo.getValue().equals("Inactive"))
 		{
 			status = 1;
 		}
@@ -92,19 +92,19 @@ public class CreateGoalController implements Controller, Initializable{
 	public String getImage()
 	{
 		String image = "";
-		if(typeCombo.getSelectionModel().equals("Finance"))
+		if(typeCombo.getValue().equals("Finance"))
 		{
 			image = "/resources/cash-icon.png";
 		}
-		else if(typeCombo.getSelectionModel().equals("Fitness"))
+		else if(typeCombo.getValue().equals("Fitness"))
 		{
 			image = "/resources/fitnessicon.png";
 		}
-		else if(typeCombo.getSelectionModel().equals("Productivity"))
+		else if(typeCombo.getValue().equals("Productivity"))
 		{
 			image = "/resources/productivityicon.png";
 		}
-		else if(typeCombo.getSelectionModel().equals("Other"))
+		else if(typeCombo.getValue().equals("Other"))
 		{
 			image = "/resources/etcicon.png";
 		}

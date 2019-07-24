@@ -46,8 +46,8 @@ public class GoalTableGateway {
 						, resultSet.getInt("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
-						, resultSet.getDate("start")
-						, resultSet.getDate("end")
+						, resultSet.getDate("startgoal")
+						, resultSet.getDate("endgoal")
 						, resultSet.getInt("userid")));
 			}
 		} catch (SQLException e) {
@@ -74,8 +74,8 @@ public class GoalTableGateway {
 						, resultSet.getInt("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
-						, resultSet.getDate("start")
-						, resultSet.getDate("end")
+						, resultSet.getDate("startgoal")
+						, resultSet.getDate("endgoal")
 						, resultSet.getInt("userid")));
 			}
 		} catch (SQLException e) {
@@ -102,8 +102,8 @@ public class GoalTableGateway {
 						, resultSet.getInt("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
-						, resultSet.getDate("start")
-						, resultSet.getDate("end")
+						, resultSet.getDate("startgoal")
+						, resultSet.getDate("endgoal")
 						, resultSet.getInt("userid")));
 			}
 		} catch (SQLException e) {
@@ -129,8 +129,8 @@ public class GoalTableGateway {
 						, resultSet.getInt("goal")
 						, resultSet.getInt("status")
 						, resultSet.getInt("count")
-						, resultSet.getDate("start")
-						, resultSet.getDate("end")
+						, resultSet.getDate("startgoal")
+						, resultSet.getDate("endgoal")
 						, resultSet.getInt("userid")));
 			}
 		} catch (SQLException e) {
@@ -142,11 +142,12 @@ public class GoalTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, start, end, userid) VALUES (?,?,?,?,?,?,?,?,?)";
+			//String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, start, end, userid) VALUES (?,?,?,?,?,?,?,?,?)";
+			String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, startgoal, endgoal, userid) VALUES (?,?,?,?,?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setString(1, u.getName());
-			preparedStatement.setString(2, u.getImgSrc());
-			preparedStatement.setString(3, u.getImgSrc());
+			preparedStatement.setString(1, g.getName());
+			preparedStatement.setString(2, g.getDescription());
+			preparedStatement.setString(3, g.getImgSrc());
 			preparedStatement.setInt(4, g.getGoal());
 			preparedStatement.setInt(5, g.getStatus());
 			preparedStatement.setInt(6, g.getCount());
