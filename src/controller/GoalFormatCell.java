@@ -46,7 +46,7 @@ public class GoalFormatCell extends ListCell<Goal>{
 		{
 			type = "Fitness";
 		}
-		else if(g.getImgSrc().equals("/resources/producticityicon.png"))
+		else if(g.getImgSrc().equals("/resources/productivityicon.png"))
 		{
 			type = "Productivity";
 		}

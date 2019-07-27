@@ -159,6 +159,30 @@ public class GoalTableGateway {
 			e.printStackTrace();
 		}
 	}
+	public int getGoalId(Goal g, User u)
+	{
+		int goalid = 0;
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "SELECT \"id\" FROM \"Goal\" WHERE \"name\" = ? AND \"description\" = ? AND \"image\" = ? AND \"status\" = ? AND \"goal\" = ? AND \"endgoal\" = ? AND \"userid\" = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, g.getName());
+			preparedStatement.setString(2, g.getDescription());
+			preparedStatement.setString(3, g.getImgSrc());
+			preparedStatement.setInt(4, g.getStatus());
+			preparedStatement.setString(5, g.getGoal());
+			preparedStatement.setDate(6, (Date) g.getEnd());
+			preparedStatement.setInt(7, u.getId());
+			ResultSet resultSet = preparedStatement.executeQuery();
+			while (resultSet.next())
+			{ 
+				goalid = resultSet.getInt("id");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return goalid;
+	}
 	public Connection getConnection()
 	{
 		return connection;

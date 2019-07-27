@@ -1,6 +1,7 @@
 package controller;
 
 import java.net.URL;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -34,7 +35,7 @@ public class GoalDetailedController implements Initializable, Controller{
 	@FXML
 	Button updateButton;
 	@FXML
-	LineChart line;
+	LineChart<Date, Integer> line;
 	@FXML
 	ImageView image;
 	@FXML
@@ -87,9 +88,12 @@ public class GoalDetailedController implements Initializable, Controller{
 		String[] options = {"Active", "Inactive", "Finished"};
 		statusCombo.getItems().addAll(options);
 		nameLabel.setText(goal.getName());
+		startGoal.setText(goal.getStart().toString());
+		endGoal.setText(goal.getEnd().toString());
 		Image img = new Image(goal.getImgSrc(), 128, 128, false, false);
 		image.setImage(img);
 		statusCombo.setValue(getStatus());
+		
 	}
 
 }

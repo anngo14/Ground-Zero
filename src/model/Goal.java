@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Goal {
@@ -14,6 +15,7 @@ public class Goal {
 	private Date end;
 	private int id;
 	private int userid;
+	private ArrayList<Date> updateDate;
 	
 	public Goal()
 	{
@@ -25,6 +27,7 @@ public class Goal {
 		count = 0;
 		start = new Date();
 		end = new Date();
+		updateDate = new ArrayList<Date>();
 	}
 	public Goal(String n, String d, String img, String g, int s, int c, Date st, Date e, int uid)
 	{
@@ -37,6 +40,7 @@ public class Goal {
 		start = st;
 		end = e;
 		userid = uid;
+		updateDate = new ArrayList<Date>();
 	}
 	public String getDescription() {
 		return description;
@@ -104,5 +108,11 @@ public class Goal {
 	}
 	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+	public ArrayList<Date> getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(ArrayList<Date> updateDate) {
+		this.updateDate = updateDate;
 	}
 }

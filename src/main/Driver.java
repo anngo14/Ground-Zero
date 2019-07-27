@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 import controller.MainController;
+import gateway.DatesTableGateway;
 import gateway.GoalTableGateway;
 import gateway.UserTableGateway;
 import javafx.application.Application;
@@ -62,6 +63,7 @@ public class Driver extends Application{
 		Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 		UserTableGateway.getInstance().setConnection(connection);
 		GoalTableGateway.getInstance().setConnection(connection);
+		DatesTableGateway.getInstance().setConnection(connection);
 	}
 	@Override 
 	public void stop() throws Exception
@@ -69,6 +71,7 @@ public class Driver extends Application{
 		super.stop();
 		UserTableGateway.getInstance().getConnection().close();
 		GoalTableGateway.getInstance().getConnection().close();
+		DatesTableGateway.getInstance().getConnection().close();
 	}
 	public void checkDirectory()
 	{

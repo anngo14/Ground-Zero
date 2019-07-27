@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import gateway.DatesTableGateway;
 import gateway.GoalTableGateway;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,6 +76,8 @@ public class CreateGoalController implements Controller, Initializable{
 
 		Goal temp = new Goal(nameText.getText(), descriptionText.getText(), image, goalText.getText(), status, 0, start, end, user.getId());
 		GoalTableGateway.getInstance().saveGoal(user, temp);
+		temp.setId(GoalTableGateway.getInstance().getGoalId(temp, user));
+		DatesTableGateway.getInstance().saveUpdate(temp, 0, start);
 		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	public int getStatus()
