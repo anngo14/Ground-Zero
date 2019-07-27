@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="panel" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="700.0" styleClass="goalDetailbg" stylesheets="@GoalDetailedView.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_RIGHT">
+         <image>
+            <Image url="@../resources/backicon.png" />
+         </image>
+         <StackPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </StackPane.margin>
+      </ImageView>
+      <Label fx:id="nameLabel" text="Name" textFill="#3b444b" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="163.0" top="25.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#backToActivity" opacity="0.0" prefHeight="70.0" prefWidth="70.0" text="Back" StackPane.alignment="TOP_RIGHT">
+         <StackPane.margin>
+            <Insets right="25.0" top="25.0" />
+         </StackPane.margin>
+      </Button>
+      <HBox alignment="CENTER" maxHeight="-Infinity" StackPane.alignment="TOP_CENTER">
+         <children>
+            <Label alignment="CENTER" text="Start Date" textFill="#3b444b" StackPane.alignment="TOP_CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </Label>
+            <Label alignment="CENTER" prefWidth="106.0" text="End Date" textFill="#3b444b" StackPane.alignment="TOP_CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <StackPane.margin>
+            <Insets top="160.0" />
+         </StackPane.margin>
+      </HBox>
+      <Label text="Status:" textFill="#3b444b" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="163.0" top="90.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" maxHeight="-Infinity" StackPane.alignment="BOTTOM_CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#deleteAction" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #F9AD9D; -fx-border-color: black; -fx-background-radius: 50;" text="Delete" StackPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+               <StackPane.margin>
+                  <Insets bottom="50.0" />
+               </StackPane.margin>
+            </Button>
+            <Button fx:id="saveButton" disable="true" mnemonicParsing="false" onAction="#saveAction" prefHeight="70.0" prefWidth="140.0" style="-fx-border-radius: 50 50 50 50; -fx-background-color: #FFFAFA; -fx-border-color: black; -fx-background-radius: 50;" text="Save" StackPane.alignment="BOTTOM_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <StackPane.margin>
+                  <Insets bottom="140.0" />
+               </StackPane.margin>
+            </Button>
+         </children>
+         <StackPane.margin>
+            <Insets bottom="50.0" />
+         </StackPane.margin>
+      </HBox>
+      <LineChart fx:id="line" maxHeight="-Infinity" opacity="0.8" StackPane.alignment="CENTER">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+         <StackPane.margin>
+            <Insets left="25.0" right="25.0" top="150.0" />
+         </StackPane.margin>
+      </LineChart>
+      <ComboBox fx:id="statusCombo" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" visibleRowCount="5" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="244.0" top="90.0" />
+         </StackPane.margin>
+      </ComboBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" StackPane.alignment="TOP_CENTER">
+         <children>
+            <Label fx:id="startGoal" alignment="CENTER" prefWidth="106.0" text="12/12/2019" textFill="#3f4850">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="endGoal" alignment="CENTER" prefWidth="106.0" text="12/12/2019" textFill="#3f4850">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+         <StackPane.margin>
+            <Insets top="195.0" />
+         </StackPane.margin>
+      </HBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" StackPane.alignment="TOP_CENTER">
+         <children>
+            <Label text="Update" textFill="#3b444b">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="countText" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="65.0" prefWidth="400.0" promptText="Increment / Decrement" StackPane.alignment="TOP_CENTER">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets left="25.0" right="25.0" top="250.0" />
+               </StackPane.margin>
+            </TextField>
+            <Button fx:id="updateButton" mnemonicParsing="false" onAction="#updateCount" prefHeight="65.0" prefWidth="65.0" text="+/-">
+               <font>
+                  <Font size="22.0" />
+               </font></Button>
+         </children>
+         <StackPane.margin>
+            <Insets top="250.0" />
+         </StackPane.margin>
+      </HBox>
+      <ImageView fx:id="image" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+         <StackPane.margin>
+            <Insets left="25.0" top="25.0" />
+         </StackPane.margin>
+         <image>
+            <Image url="@../resources/cash-icon.png" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>

@@ -58,12 +58,12 @@ public class CreateGoalController implements Controller, Initializable{
 	@FXML
 	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void cancelAction()
 	{
-		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void saveGoal()
@@ -75,7 +75,7 @@ public class CreateGoalController implements Controller, Initializable{
 
 		Goal temp = new Goal(nameText.getText(), descriptionText.getText(), image, goalText.getText(), status, 0, start, end, user.getId());
 		GoalTableGateway.getInstance().saveGoal(user, temp);
-		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	public int getStatus()
 	{

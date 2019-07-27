@@ -40,12 +40,12 @@ public class SwitchUserController implements Controller, Initializable{
 	@FXML
 	public void addUser()
 	{
-		MainController.getInstance().changeView(ViewType.CREATEUSER, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.CREATEUSER, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user), Optional.empty());
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

@@ -26,7 +26,7 @@ public class UserMouseEventHandler implements EventHandler<MouseEvent>{
 	public void handle(MouseEvent event) {
 		if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
 			User select = node.getSelectionModel().getSelectedItem();
-			MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(select));
+			MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(select), Optional.empty());
 			try {
 				output = new FileOutputStream(defaultUser);
 				byte[] content = select.toString().getBytes();

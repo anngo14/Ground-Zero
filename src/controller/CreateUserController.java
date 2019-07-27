@@ -43,7 +43,7 @@ public class CreateUserController implements Controller, Initializable{
 	@FXML
 	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void saveUser()
@@ -55,7 +55,7 @@ public class CreateUserController implements Controller, Initializable{
 			temp.setImgSrc(imgText.getText());;
 		}
 		UserTableGateway.getInstance().saveUser(temp);
-		MainController.getInstance().changeView(ViewType.SWITCHUSER, Optional.of(temp));
+		MainController.getInstance().changeView(ViewType.SWITCHUSER, Optional.of(temp), Optional.empty());
 	}
 	@FXML
 	public void uploadImg()
@@ -70,7 +70,7 @@ public class CreateUserController implements Controller, Initializable{
 	@FXML
 	public void cancelAction()
 	{
-		MainController.getInstance().changeView(ViewType.SWITCHUSER, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.SWITCHUSER, Optional.of(user), Optional.empty());
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

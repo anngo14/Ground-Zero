@@ -46,7 +46,7 @@ public class ActivityController implements Controller, Initializable{
 	@FXML
 	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void showActive()
@@ -107,7 +107,7 @@ public class ActivityController implements Controller, Initializable{
 	@FXML
 	public void addNewGoal()
 	{
-		MainController.getInstance().changeView(ViewType.CREATEGOAL, Optional.of(user));
+		MainController.getInstance().changeView(ViewType.CREATEGOAL, Optional.of(user), Optional.empty());
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -122,6 +122,7 @@ public class ActivityController implements Controller, Initializable{
 			
 		});
 		list.setStyle("-fx-control-inner-background: 10%;");
+		list.setOnMousePressed(new GoalMouseEventHandler(list, user));
 		activityLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");
 		showActive();
 		

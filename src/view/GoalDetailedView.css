@@ -1,0 +1,4 @@
+.goalDetailbg{
+	-fx-background-image: url('/resources/guy.jpg');
+	-fx-background-size: cover, auto;
+}

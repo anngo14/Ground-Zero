@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import model.Goal;
 import model.User;
 
 public class MainController implements Initializable, Controller{
@@ -46,7 +47,7 @@ public class MainController implements Initializable, Controller{
 		}
 		return instance;
 	}
-	public void changeView(ViewType view, Optional<User> user)
+	public void changeView(ViewType view, Optional<User> user, Optional<Goal> goal)
 	{
 		String viewName = "";
 		Controller controller = null;
@@ -83,6 +84,12 @@ public class MainController implements Initializable, Controller{
 				controller = new CreateGoalController(user.get());
 				break;
 			}
+			case GOALDETAILED:
+			{
+				viewName = "/view/GoalDetailedView.fxml";
+				controller = new GoalDetailedController(user.get(), goal.get());
+				break;
+			}
 		}
 		try {
 			FXMLLoader loader = new FXMLLoader(this.getClass().getResource(viewName));
@@ -97,7 +104,7 @@ public class MainController implements Initializable, Controller{
 	@FXML
 	public void loginAction()
 	{
-		changeView(ViewType.ACTIVITY, Optional.of(user));
+		changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void quitApplication()
@@ -107,7 +114,7 @@ public class MainController implements Initializable, Controller{
 	@FXML
 	public void switchUser()
 	{
-		changeView(ViewType.SWITCHUSER, Optional.of(user));
+		changeView(ViewType.SWITCHUSER, Optional.of(user), Optional.empty());
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
