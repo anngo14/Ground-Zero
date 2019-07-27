@@ -93,13 +93,19 @@
       </HBox>
       <LineChart fx:id="line" maxHeight="-Infinity" opacity="0.8" StackPane.alignment="CENTER">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis side="BOTTOM" fx:id="x">
+               <tickLabelFont>
+                  <Font size="18.0" />
+               </tickLabelFont></CategoryAxis>
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="y" side="LEFT">
+               <tickLabelFont>
+                  <Font size="18.0" />
+               </tickLabelFont></NumberAxis>
         </yAxis>
          <StackPane.margin>
-            <Insets left="25.0" right="25.0" top="150.0" />
+            <Insets left="25.0" right="25.0" top="175.0" />
          </StackPane.margin>
       </LineChart>
       <ComboBox fx:id="statusCombo" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="150.0" visibleRowCount="5" StackPane.alignment="TOP_LEFT">
@@ -165,5 +171,13 @@
             <Image url="@../resources/cash-icon.png" />
          </image>
       </ImageView>
+      <Label text="*Numerical Figures Only*" StackPane.alignment="TOP_CENTER">
+         <StackPane.margin>
+            <Insets left="40.0" top="320.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </StackPane>
