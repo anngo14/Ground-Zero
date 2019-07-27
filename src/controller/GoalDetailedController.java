@@ -182,6 +182,12 @@ public class GoalDetailedController implements Initializable, Controller{
 		{
 			series.getData().add(new Data(d.toString(), DatesTableGateway.getInstance().getCount(d, goal)));
 		}
+		//Test Data
+		/*series.getData().add(new Data("2019-29-07", 4));
+		series.getData().add(new Data("2019-31-07", 7));
+		series.getData().add(new Data("2019-02-08", 1));
+		series.getData().add(new Data("2019-12-08", 12));*/
+
 		line.getData().add(series);
 		
 	}
