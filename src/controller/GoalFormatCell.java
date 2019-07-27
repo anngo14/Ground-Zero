@@ -67,6 +67,10 @@ public class GoalFormatCell extends ListCell<Goal>{
 		{
 			status = "Inactive";
 		}
+		else if(g.getStatus() == 2)
+		{
+			status = "Finished";
+		}
 		return status;
 	}
 }

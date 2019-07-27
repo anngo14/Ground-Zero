@@ -1,0 +1,4 @@
+.finishedbg{
+	-fx-background-image: url('/resources/mountaintop.jpg');
+	-fx-background-size: cover, auto;
+}

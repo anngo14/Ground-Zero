@@ -86,7 +86,7 @@
             <Insets bottom="25.0" left="25.0" right="25.0" top="330.0" />
          </StackPane.margin>
       </ListView>
-      <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
+      <ImageView fx:id="image" fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="TOP_LEFT">
          <StackPane.margin>
             <Insets left="25.0" top="25.0" />
          </StackPane.margin>

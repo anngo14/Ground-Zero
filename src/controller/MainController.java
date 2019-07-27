@@ -90,6 +90,11 @@ public class MainController implements Initializable, Controller{
 				controller = new GoalDetailedController(user.get(), goal.get());
 				break;
 			}
+			case FINISHED:
+			{
+				viewName = "/view/FinishedView.fxml";
+				controller = new FinishedController(user.get());
+			}
 		}
 		try {
 			FXMLLoader loader = new FXMLLoader(this.getClass().getResource(viewName));

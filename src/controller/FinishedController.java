@@ -12,7 +12,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -22,7 +21,7 @@ import javafx.util.Callback;
 import model.Goal;
 import model.User;
 
-public class ActivityController implements Controller, Initializable{
+public class FinishedController implements Initializable, Controller{
 
 	private User user;
 	private ArrayList<Goal> goalList;
@@ -30,66 +29,26 @@ public class ActivityController implements Controller, Initializable{
 	@FXML
 	Label nameLabel;
 	@FXML
-	Label activityLabel;
+	Label completedLabel;
 	@FXML
-	Label zeroLabel;
+	ImageView image;
 	@FXML
 	ListView<Goal> list;
 	@FXML
-	Button activeButton;
-	@FXML
-	Button inactiveButton;
-	@FXML
-	Button allButton;
-	@FXML
-	ImageView image;
+	Label zeroLabel;
 	
-	public ActivityController(User u)
+	public FinishedController(User u)
 	{
 		user = u;
 		goalList = new ArrayList<Goal>();
 	}
-	@FXML
-	public void backToHome()
-	{
-		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user), Optional.empty());
-	}
-	@FXML
-	public void showActive()
+	public void showComplete()
 	{
 		list.getItems().clear();
-		goalList = GoalTableGateway.getInstance().getActiveGoals(user);
+		goalList = GoalTableGateway.getInstance().getCompletedGoals(user);
 		setUpScene();
 		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
 		list.setItems(olist);
-		activeButton.setOpacity(1);
-		inactiveButton.setOpacity(0.5);
-		allButton.setOpacity(0.5);
-	}
-	@FXML
-	public void showInactive()
-	{
-		list.getItems().clear();
-		goalList = GoalTableGateway.getInstance().getInactiveGoals(user);
-		setUpScene();
-		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
-		list.setItems(olist);
-		activeButton.setOpacity(0.5);
-		inactiveButton.setOpacity(1);
-		allButton.setOpacity(0.5);
-		setUpScene();
-	}
-	@FXML
-	public void showAll()
-	{
-		list.getItems().clear();
-		goalList = GoalTableGateway.getInstance().getAllGoals(user);
-		setUpScene();
-		ObservableList<Goal> olist = FXCollections.observableArrayList(goalList);
-		list.setItems(olist);
-		activeButton.setOpacity(0.5);
-		inactiveButton.setOpacity(0.5);
-		allButton.setOpacity(1);
 	}
 	public void setUpScene()
 	{
@@ -106,14 +65,14 @@ public class ActivityController implements Controller, Initializable{
 		}
 	}
 	@FXML
-	public void showFinished()
+	public void backToHome()
 	{
-		MainController.getInstance().changeView(ViewType.FINISHED, Optional.of(user), Optional.empty());
+		MainController.getInstance().changeView(ViewType.LOGIN, Optional.of(user), Optional.empty());
 	}
 	@FXML
-	public void addNewGoal()
+	public void backToActivity()
 	{
-		MainController.getInstance().changeView(ViewType.CREATEGOAL, Optional.of(user), Optional.empty());
+		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -138,9 +97,8 @@ public class ActivityController implements Controller, Initializable{
 		});
 		list.setStyle("-fx-control-inner-background: 10%;");
 		list.setOnMousePressed(new GoalMouseEventHandler(list, user));
-		activityLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");
-		showActive();
-		
+		completedLabel.setStyle("-fx-font-family: 'Quicksand', sans-serif; -fx-font-weight: bold;");
+		showComplete();
 	}
-	
+
 }
