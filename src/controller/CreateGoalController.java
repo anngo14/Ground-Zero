@@ -118,8 +118,9 @@ public class CreateGoalController implements Controller, Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		typeCombo.getItems().addAll(typeOptions);
 		statusCombo.getItems().addAll(statusOptions);
+		typeCombo.setValue("Other");
 		startDate.setValue(NOW_LOCAL_DATE());
-		endDate.setValue(NOW_LOCAL_DATE());
+		endDate.setValue(NOW_LOCAL_DATE().plusDays(66));
 		typeCombo.valueProperty().addListener(new CreateGoalChangeListener(image));
 		nameText.focusedProperty().addListener(new NodeChangeListener(nameText));
 		goalText.focusedProperty().addListener(new NodeChangeListener(goalText));

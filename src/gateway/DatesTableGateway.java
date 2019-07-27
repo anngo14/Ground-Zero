@@ -77,6 +77,18 @@ public class DatesTableGateway {
 		}
 		return count;
 	}
+	public void deleteDates(Goal g)
+	{
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "DELETE FROM \"Dates\" WHERE \"goalid\" = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, g.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public Connection getConnection()
 	{
 		return connection;

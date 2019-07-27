@@ -40,7 +40,7 @@ public class GoalTableGateway {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next())
 			{ 
-				active.add(new Goal(resultSet.getString("name")
+				Goal temp = new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
 						, resultSet.getString("goal")
@@ -48,7 +48,9 @@ public class GoalTableGateway {
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
 						, resultSet.getDate("endgoal")
-						, resultSet.getInt("userid")));
+						, resultSet.getInt("userid"));
+				temp.setId(getGoalId(temp, u));
+				active.add(temp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -68,7 +70,7 @@ public class GoalTableGateway {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next())
 			{ 
-				inactive.add(new Goal(resultSet.getString("name")
+				Goal temp = new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
 						, resultSet.getString("goal")
@@ -76,7 +78,9 @@ public class GoalTableGateway {
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
 						, resultSet.getDate("endgoal")
-						, resultSet.getInt("userid")));
+						, resultSet.getInt("userid"));
+				temp.setId(getGoalId(temp, u));
+				inactive.add(temp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -96,7 +100,7 @@ public class GoalTableGateway {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next())
 			{ 
-				complete.add(new Goal(resultSet.getString("name")
+				Goal temp = new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
 						, resultSet.getString("goal")
@@ -104,7 +108,9 @@ public class GoalTableGateway {
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
 						, resultSet.getDate("endgoal")
-						, resultSet.getInt("userid")));
+						, resultSet.getInt("userid"));
+				temp.setId(getGoalId(temp, u));
+				complete.add(temp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -123,7 +129,7 @@ public class GoalTableGateway {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next())
 			{ 
-				goals.add(new Goal(resultSet.getString("name")
+				Goal temp = new Goal(resultSet.getString("name")
 						, resultSet.getString("description")
 						, resultSet.getString("image")
 						, resultSet.getString("goal")
@@ -131,7 +137,9 @@ public class GoalTableGateway {
 						, resultSet.getInt("count")
 						, resultSet.getDate("startgoal")
 						, resultSet.getDate("endgoal")
-						, resultSet.getInt("userid")));
+						, resultSet.getInt("userid"));
+				temp.setId(getGoalId(temp, u));
+				goals.add(temp);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -142,7 +150,6 @@ public class GoalTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			//String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, start, end, userid) VALUES (?,?,?,?,?,?,?,?,?)";
 			String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, startgoal, endgoal, userid) VALUES (?,?,?,?,?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, g.getName());
@@ -182,6 +189,18 @@ public class GoalTableGateway {
 			e.printStackTrace();
 		}
 		return goalid;
+	}
+	public void deleteGoal(Goal g)
+	{
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "DELETE FROM \"Goal\" WHERE \"id\" = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, g.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	public Connection getConnection()
 	{

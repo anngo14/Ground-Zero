@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import gateway.DatesTableGateway;
+import gateway.GoalTableGateway;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -59,7 +61,9 @@ public class GoalDetailedController implements Initializable, Controller{
 	@FXML
 	public void deleteAction()
 	{
-		
+		DatesTableGateway.getInstance().deleteDates(goal);
+		GoalTableGateway.getInstance().deleteGoal(goal);
+		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	@FXML
 	public void saveAction()
