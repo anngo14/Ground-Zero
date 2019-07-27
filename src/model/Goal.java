@@ -10,7 +10,7 @@ public class Goal {
 	private String imgSrc;
 	private String goal;
 	private int status;
-	private int count;
+	private double count;
 	private Date start;
 	private Date end;
 	private int id;
@@ -29,7 +29,7 @@ public class Goal {
 		end = new Date();
 		updateDate = new ArrayList<Date>();
 	}
-	public Goal(String n, String d, String img, String g, int s, int c, Date st, Date e, int uid)
+	public Goal(String n, String d, String img, String g, int s, double c, Date st, Date e, int uid)
 	{
 		name = n;
 		description = d;
@@ -72,10 +72,10 @@ public class Goal {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public int getCount() {
+	public double getCount() {
 		return count;
 	}
-	public void setCount(int count) {
+	public void setCount(double count) {
 		this.count = count;
 	}
 	public Date getStart() {

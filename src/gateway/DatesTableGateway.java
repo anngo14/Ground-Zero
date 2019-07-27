@@ -44,13 +44,13 @@ public class DatesTableGateway {
 		}
 		return dates;
 	}
-	public void saveUpdate(Goal g, int c, Date d)
+	public void saveUpdate(Goal g, double c, Date d)
 	{
 		PreparedStatement preparedStatement = null;
 		try {
 			String query = "INSERT INTO \"Dates\" (count, update, goalid) VALUES (?,?,?)";
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setInt(1, c);
+			preparedStatement.setDouble(1, c);
 			preparedStatement.setDate(2, (java.sql.Date) d);
 			preparedStatement.setInt(3, g.getId());
 			preparedStatement.executeUpdate();
@@ -58,9 +58,9 @@ public class DatesTableGateway {
 			e.printStackTrace();
 		}
 	}
-	public int getCount(Date d, Goal g)
+	public double getCount(Date d, Goal g)
 	{
-		int count = 0;
+		double count = 0;
 		PreparedStatement preparedStatement = null;
 		try {
 			String query = "SELECT \"count\" FROM \"Dates\" WHERE \"update\" = ? AND \"goalid\" = ?";
@@ -70,7 +70,7 @@ public class DatesTableGateway {
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while (resultSet.next())
 			{ 
-				count = resultSet.getInt("count");
+				count = resultSet.getDouble("count");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

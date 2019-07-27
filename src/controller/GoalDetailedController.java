@@ -34,6 +34,7 @@ public class GoalDetailedController implements Initializable, Controller{
 	private User user; 
 	private Goal goal;
 	private ArrayList<Date> dList;
+	private double count;
 	
 	@FXML
 	Label nameLabel;
@@ -57,8 +58,6 @@ public class GoalDetailedController implements Initializable, Controller{
     CategoryAxis x;
     @FXML
     NumberAxis y;
-	
-	private int count;
 	
 	public GoalDetailedController(User u, Goal g)
 	{
@@ -87,7 +86,7 @@ public class GoalDetailedController implements Initializable, Controller{
 		}
 		else 
 		{
-			count = Integer.parseInt(text);
+			count = Double.parseDouble(text);
 		}
 		DatesTableGateway.getInstance().saveUpdate(goal, count, java.sql.Date.valueOf(NOW_LOCAL_DATE()));
 		dList = DatesTableGateway.getInstance().getDates(goal);
@@ -117,9 +116,9 @@ public class GoalDetailedController implements Initializable, Controller{
 		}
 		else 
 		{
-			count = Integer.parseInt(text);
+			count = Double.parseDouble(text);
 		}
-		int temp = goal.getCount() + count;
+		double temp = goal.getCount() + count;
 		if(temp < 0)
 		{
 			temp = 0;
@@ -174,6 +173,14 @@ public class GoalDetailedController implements Initializable, Controller{
 		Image img = new Image(goal.getImgSrc(), 128, 128, false, false);
 		image.setImage(img);
 		statusCombo.setValue(getStatus());
+		
+		if(goal.getStatus() == 2)
+		{
+			updateButton.setDisable(true);
+			countText.setDisable(true);
+			statusCombo.setDisable(true);
+			saveButton.setDisable(true);
+		}
 		countText.textProperty().addListener(new CreateUserChangeListener(saveButton));
 		statusCombo.valueProperty().addListener(new GoalDetailedChangeListener(saveButton));
 		Series series = new Series();

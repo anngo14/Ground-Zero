@@ -134,7 +134,7 @@ public class GoalTableGateway {
 						, resultSet.getString("image")
 						, resultSet.getString("goal")
 						, resultSet.getInt("status")
-						, resultSet.getInt("count")
+						, resultSet.getDouble("count")
 						, resultSet.getDate("startgoal")
 						, resultSet.getDate("endgoal")
 						, resultSet.getInt("userid"));
@@ -157,7 +157,7 @@ public class GoalTableGateway {
 			preparedStatement.setString(3, g.getImgSrc());
 			preparedStatement.setString(4, g.getGoal());
 			preparedStatement.setInt(5, g.getStatus());
-			preparedStatement.setInt(6, g.getCount());
+			preparedStatement.setDouble(6, g.getCount());
 			preparedStatement.setDate(7, (Date) g.getStart());
 			preparedStatement.setDate(8, (Date) g.getEnd());
 			preparedStatement.setInt(9, u.getId());
@@ -209,7 +209,7 @@ public class GoalTableGateway {
 			String query = "UPDATE \"Goal\" SET \"status\" = ?, \"count\" = ? WHERE \"id\" = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, g.getStatus());
-			preparedStatement.setInt(2, g.getCount());
+			preparedStatement.setDouble(2, g.getCount());
 			preparedStatement.setInt(3, g.getId());
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
