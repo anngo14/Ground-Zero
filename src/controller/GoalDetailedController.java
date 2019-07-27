@@ -1,6 +1,10 @@
 package controller;
 
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -43,10 +47,19 @@ public class GoalDetailedController implements Initializable, Controller{
 	@FXML
 	Button saveButton;
 	
+	private int count;
+	
 	public GoalDetailedController(User u, Goal g)
 	{
+		count = 0;
 		user = u;
 		goal = g;
+	}
+	public static final LocalDate NOW_LOCAL_DATE (){
+		String date = new SimpleDateFormat("MM-dd-yyyy").format(Calendar.getInstance().getTime());
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+		LocalDate localDate = LocalDate.parse(date, formatter);
+		return localDate;
 	}
 	@FXML
 	public void backToActivity()
@@ -56,7 +69,16 @@ public class GoalDetailedController implements Initializable, Controller{
 	@FXML
 	public void updateCount()
 	{
-		
+		String text = countText.getText().replaceAll("\\D", "");
+		if(text.equals(""))
+		{
+			count = 0;
+		}
+		else 
+		{
+			count = Integer.parseInt(text);
+		}
+		DatesTableGateway.getInstance().saveUpdate(goal, count, java.sql.Date.valueOf(NOW_LOCAL_DATE()));
 	}
 	@FXML
 	public void deleteAction()
@@ -68,7 +90,19 @@ public class GoalDetailedController implements Initializable, Controller{
 	@FXML
 	public void saveAction()
 	{
-		
+		String text = countText.getText().replaceAll("\\D", "");
+		if(text.equals(""))
+		{
+			count = 0;
+		}
+		else 
+		{
+			count = Integer.parseInt(text);
+		}
+		goal.setStatus(getStatusInt());
+		goal.setCount(count);
+		GoalTableGateway.getInstance().updateGoal(goal);
+		MainController.getInstance().changeView(ViewType.ACTIVITY, Optional.of(user), Optional.empty());
 	}
 	public String getStatus()
 	{		
@@ -87,6 +121,23 @@ public class GoalDetailedController implements Initializable, Controller{
 		}
 		return output;
 	}
+	public int getStatusInt()
+	{
+		int temp = 0;
+		switch(statusCombo.getValue())
+		{
+			case "Active":
+				temp = 0;
+				break;
+			case "Inactive":
+				temp = 1;
+				break;
+			case "Finished":
+				temp = 2;
+				break;
+		}
+		return temp;
+	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		String[] options = {"Active", "Inactive", "Finished"};
@@ -97,6 +148,8 @@ public class GoalDetailedController implements Initializable, Controller{
 		Image img = new Image(goal.getImgSrc(), 128, 128, false, false);
 		image.setImage(img);
 		statusCombo.setValue(getStatus());
+		countText.textProperty().addListener(new CreateUserChangeListener(saveButton));
+		statusCombo.valueProperty().addListener(new GoalDetailedChangeListener(saveButton));
 		
 	}
 

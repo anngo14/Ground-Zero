@@ -202,6 +202,20 @@ public class GoalTableGateway {
 			e.printStackTrace();
 		}
 	}
+	public void updateGoal(Goal g)
+	{
+		PreparedStatement preparedStatement = null;
+		try {
+			String query = "UPDATE \"Goal\" SET \"status\" = ?, \"count\" = ? WHERE \"id\" = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, g.getStatus());
+			preparedStatement.setInt(2, g.getCount());
+			preparedStatement.setInt(3, g.getId());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	public Connection getConnection()
 	{
 		return connection;
