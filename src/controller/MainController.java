@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import model.Goal;
 import model.User;
 
@@ -23,6 +25,7 @@ public class MainController implements Initializable, Controller{
 
 	private static MainController instance = null;
 	private User user;
+	FadeTransition fade;
 	
 	@FXML
 	Label nameLabel;
@@ -101,6 +104,11 @@ public class MainController implements Initializable, Controller{
 			loader.setController(controller);
 			StackPane newPane = loader.load();
 			panel.getChildren().setAll(newPane);
+			fade = new FadeTransition(Duration.millis(100), panel);
+			fade.setFromValue(0);
+			fade.setToValue(1);
+			
+			fade.play();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
