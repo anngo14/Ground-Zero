@@ -88,7 +88,7 @@ public class GoalDetailedController implements Initializable, Controller{
 		{
 			count = Double.parseDouble(text);
 		}
-		DatesTableGateway.getInstance().saveUpdate(goal, count, java.sql.Date.valueOf(NOW_LOCAL_DATE()));
+		DatesTableGateway.getInstance().saveUpdate(goal, goal.getCount()+count, java.sql.Date.valueOf(NOW_LOCAL_DATE()));
 		dList = DatesTableGateway.getInstance().getDates(goal);
 		Series series = new Series();
 		series.setName("Today's Progress");
