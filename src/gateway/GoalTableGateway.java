@@ -125,7 +125,8 @@ public class GoalTableGateway {
 		ArrayList<Goal> goals = new ArrayList<Goal>();
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ?";
+			//String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ?";
+			String query = "SELECT * FROM Goal WHERE id >= ? AND userid = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, -1);
 			preparedStatement.setInt(2, u.getId());
@@ -175,7 +176,8 @@ public class GoalTableGateway {
 		int goalid = 0;
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT \"id\" FROM \"Goal\" WHERE \"name\" = ? AND \"description\" = ? AND \"image\" = ? AND \"status\" = ? AND \"goal\" = ? AND \"endgoal\" = ? AND \"userid\" = ?";
+			//String query = "SELECT \"id\" FROM \"Goal\" WHERE \"name\" = ? AND \"description\" = ? AND \"image\" = ? AND \"status\" = ? AND \"goal\" = ? AND \"endgoal\" = ? AND \"userid\" = ?";
+			String query = "SELECT id FROM Goal WHERE name = ? AND description = ? AND image = ? AND status = ? AND goal = ? AND endgoal = ? AND userid = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, g.getName());
 			preparedStatement.setString(2, g.getDescription());
