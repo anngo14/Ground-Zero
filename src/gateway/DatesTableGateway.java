@@ -31,7 +31,8 @@ public class DatesTableGateway {
 		ArrayList<Date> dates = new ArrayList<Date>();
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT * FROM \"Dates\" WHERE \"goalid\" = ?";
+			//String query = "SELECT * FROM \"Dates\" WHERE \"goalid\" = ?";
+			String query = "SELECT * FROM Dates WHERE goalid = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, g.getId());
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -48,7 +49,8 @@ public class DatesTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "INSERT INTO \"Dates\" (count, update, goalid) VALUES (?,?,?)";
+			//String query = "INSERT INTO \"Dates\" (count, update, goalid) VALUES (?,?,?)";
+			String query = "INSERT INTO Dates (count, update, goalid) VALUES (?,?,?)";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setDouble(1, c);
 			preparedStatement.setDate(2, (java.sql.Date) d);
@@ -63,7 +65,8 @@ public class DatesTableGateway {
 		double count = 0;
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT \"count\" FROM \"Dates\" WHERE \"update\" = ? AND \"goalid\" = ?";
+			//String query = "SELECT \"count\" FROM \"Dates\" WHERE \"update\" = ? AND \"goalid\" = ?";
+			String query = "SELECT count FROM Dates WHERE update = ? AND goalid = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setDate(1, (java.sql.Date) d);
 			preparedStatement.setInt(2, g.getId());
@@ -81,7 +84,8 @@ public class DatesTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "DELETE FROM \"Dates\" WHERE \"goalid\" = ?";
+			//String query = "DELETE FROM \"Dates\" WHERE \"goalid\" = ?";
+			String query = "DELETE FROM Dates WHERE goalid = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, g.getId());
 			preparedStatement.executeUpdate();

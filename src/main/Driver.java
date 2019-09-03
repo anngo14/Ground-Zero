@@ -11,6 +11,8 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
 import controller.MainController;
 import gateway.DatesTableGateway;
 import gateway.GoalTableGateway;
@@ -25,9 +27,12 @@ import model.User;
 
 public class Driver extends Application{
 
-	private static final String DB_URL = "jdbc:postgresql://localhost:5432/Ground Zero";
+	/*private static final String DB_URL = "jdbc:postgresql://localhost:5432/Ground Zero";
 	private static final String DB_USER = "postgres";
-	private static final String DB_PASSWORD = "password";
+	private static final String DB_PASSWORD = "password";*/
+	private static final String DB_URL = "jdbc:mysql://totemdb-1.cykewri9xfhv.us-east-2.rds.amazonaws.com/GroundZero";
+	private static final String DB_USER = "admin";
+	private static final String DB_PASSWORD = "Powermacg5";
 	private final File defaultUser = new File("C:\\GroundZero\\Users\\lastUser.txt");
     private final File directory = new File ("C:\\GroundZero\\Users");
 	private User lastUser;
@@ -59,11 +64,20 @@ public class Driver extends Application{
 	public void init() throws Exception
 	{
 		super.init();
-		Class.forName("org.postgresql.Driver");
-		Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+		//Class.forName("org.postgresql.Driver");
+		//Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+		Connection connection = establishDataSource().getConnection();
 		UserTableGateway.getInstance().setConnection(connection);
 		GoalTableGateway.getInstance().setConnection(connection);
 		DatesTableGateway.getInstance().setConnection(connection);
+	}
+	public MysqlDataSource establishDataSource()
+	{
+		MysqlDataSource ds = new MysqlDataSource();
+		ds.setURL(DB_URL);
+		ds.setUser(DB_USER);
+		ds.setPassword(DB_PASSWORD);
+		return ds;
 	}
 	@Override 
 	public void stop() throws Exception

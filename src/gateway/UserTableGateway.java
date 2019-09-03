@@ -32,7 +32,8 @@ public class UserTableGateway {
 		ArrayList<User> users = new ArrayList<User>();
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT * FROM \"User\" WHERE \"id\" >= ?";
+			//String query = "SELECT * FROM \"User\" WHERE \"id\" >= ?";
+			String query = "SELECT * FROM User WHERE id >= ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, -1);
 			
@@ -52,7 +53,8 @@ public class UserTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "INSERT INTO \"User\" (name, image) VALUES (?,?)";
+			//String query = "INSERT INTO \"User\" (name, image) VALUES (?,?)";
+			String query = "INSERT INTO User (name, image) VALUES (?,?)";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, u.getName());
 			preparedStatement.setString(2, u.getImgSrc());

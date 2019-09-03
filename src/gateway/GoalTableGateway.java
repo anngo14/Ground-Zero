@@ -32,7 +32,8 @@ public class GoalTableGateway {
 		ArrayList<Goal> active = new ArrayList<Goal>();
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			//String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			String query = "SELECT * FROM Goal WHERE id >= ? AND userid = ? AND status = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, -1);
 			preparedStatement.setInt(2, u.getId());
@@ -62,7 +63,8 @@ public class GoalTableGateway {
 		ArrayList<Goal> inactive = new ArrayList<Goal>();
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			//String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			String query = "SELECT * FROM Goal WHERE id >= ? AND userid = ? AND status = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, -1);
 			preparedStatement.setInt(2, u.getId());
@@ -92,7 +94,8 @@ public class GoalTableGateway {
 		ArrayList<Goal> complete = new ArrayList<Goal>();
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			//String query = "SELECT * FROM \"Goal\" WHERE \"id\" >= ? AND \"userid\" = ? AND \"status\" = ?";
+			String query = "SELECT * FROM Goal WHERE id >= ? AND userid = ? AND status = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, -1);
 			preparedStatement.setInt(2, u.getId());
@@ -150,7 +153,8 @@ public class GoalTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, startgoal, endgoal, userid) VALUES (?,?,?,?,?,?,?,?,?)";
+			//String query = "INSERT INTO \"Goal\" (name, description, image, goal, status, count, startgoal, endgoal, userid) VALUES (?,?,?,?,?,?,?,?,?)";
+			String query = "INSERT INTO Goal (name, description, image, goal, status, count, startgoal, endgoal, userid) VALUES (?,?,?,?,?,?,?,?,?)";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, g.getName());
 			preparedStatement.setString(2, g.getDescription());
@@ -194,7 +198,8 @@ public class GoalTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "DELETE FROM \"Goal\" WHERE \"id\" = ?";
+			//String query = "DELETE FROM \"Goal\" WHERE \"id\" = ?";
+			String query = "DELETE FROM Goal WHERE id = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, g.getId());
 			preparedStatement.executeUpdate();
@@ -206,7 +211,8 @@ public class GoalTableGateway {
 	{
 		PreparedStatement preparedStatement = null;
 		try {
-			String query = "UPDATE \"Goal\" SET \"status\" = ?, \"count\" = ? WHERE \"id\" = ?";
+			//String query = "UPDATE \"Goal\" SET \"status\" = ?, \"count\" = ? WHERE \"id\" = ?";
+			String query = "UPDATE Goal SET status = ?, count = ? WHERE id = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, g.getStatus());
 			preparedStatement.setDouble(2, g.getCount());
